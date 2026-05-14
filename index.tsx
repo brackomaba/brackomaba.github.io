@@ -1,0 +1,95 @@
+src/routes/index.tsx
+import { createFileRoute } from "@tanstack/react-router";
+import heroImg from "@/assets/jansen-hero.jpg";
+import { Countdown } from "@/components/Countdown";
+export const Route = createFileRoute("/")({
+  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Jansendansen — Premiär 12 juni" },
+      { name: "description", content: "Nedräkning till släppet av Jansendansen. Premiär 12 juni 2026." },
+      { property: "og:title", content: "Jansendansen — Premiär 12 juni" },
+      { property: "og:description", content: "Nedräkning till släppet av Jansendansen." },
+    ],
+  }),
+});
+// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
+// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
+function PlaceholderIndex() {
+function Index() {
+  return (
+    <div
+      className="flex min-h-screen items-center justify-center"
+      style={{ backgroundColor: "#fcfbf8" }}
+    >
+      <img
+        data-lovable-blank-page-placeholder="REMOVE_THIS"
+        src="https://cdn.gpteng.co/blank-app-v1.svg"
+        alt="Your app will live here!"
+      />
+    </div>
+    <main className="relative min-h-screen overflow-hidden">
+      {/* Hero background */}
+      <div className="absolute inset-0 -z-10">
+        <img
+          src={heroImg}
+          alt=""
+          width={1536}
+          height={1536}
+          className="w-full h-full object-cover scale-110 blur-sm opacity-70"
+        />
+        <div className="absolute inset-0" style={{ background: "var(--gradient-overlay)" }} />
+      </div>
+      {/* Top marquee */}
+      <div className="absolute top-0 left-0 right-0 overflow-hidden border-b border-border/40 bg-background/30 backdrop-blur-md py-3">
+        <div className="flex animate-marquee whitespace-nowrap font-display text-sm tracking-[0.4em] text-accent">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <span key={i} className="mx-8">★ JANSENDANSEN ★ 12.06.2026 ★ COMING SOON</span>
+          ))}
+        </div>
+      </div>
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16">
+        <span className="text-xs md:text-sm uppercase tracking-[0.5em] text-secondary mb-6">
+          En film av rörelse
+        </span>
+        <h1 className="font-display text-7xl md:text-[12rem] lg:text-[16rem] leading-[0.85] text-center">
+          <span
+            style={{
+              background: "var(--gradient-hero)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          >
+            Jansen
+          </span>
+          <br />
+          <span className="text-foreground italic">dansen</span>
+        </h1>
+        <p className="mt-8 max-w-xl text-center text-base md:text-lg text-muted-foreground">
+          Den nya videon släpps <span className="text-accent font-semibold">12 juni 2026</span>.
+          Räkna ner sekunderna med oss.
+        </p>
+        <div className="mt-14 w-full flex justify-center">
+          <Countdown />
+        </div>
+        <div className="mt-16 flex flex-wrap items-center justify-center gap-4">
+          <button
+            className="px-8 py-4 rounded-full font-display tracking-widest text-lg text-primary-foreground transition hover:scale-105"
+            style={{ background: "var(--gradient-hero)", boxShadow: "var(--shadow-glow)" }}
+          >
+            Sätt en påminnelse
+          </button>
+          <button className="px-8 py-4 rounded-full font-display tracking-widest text-lg border border-border bg-card/40 backdrop-blur hover:bg-card/70 transition">
+            Se trailern
+          </button>
+        </div>
+      </section>
+      <footer className="relative border-t border-border/40 py-8 px-6 text-center text-xs uppercase tracking-[0.3em] text-muted-foreground">
+        © 2026 Jansendansen — All rörelse reserverad
+      </footer>
+    </main>
+  );
+}
+function Index() {
+  return <PlaceholderIndex />;
+}
